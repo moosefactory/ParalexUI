@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Paralex
+import UniColor
 
 //MARK: - AnyParameter Handle
 
@@ -18,13 +19,16 @@ struct KnobCell: View {
     
     private(set) var showSubtext: Bool
     
+    var titleFont: Font = Font.system(size: 12)
+    var subTitleFont: Font = Font.system(size: 9)
+    
     var body: some View {
         VStack(alignment: .center, spacing: 1) {
 
             if true {
-                Text(text).font(BTFont.normal).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
+                Text(text).font(titleFont).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
                 if showSubtext  {
-                    Text(subText).font(BTFont.tiny).opacity(0.5).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
+                    Text(subText).font(subTitleFont).opacity(0.5).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
                 }
             }
         }.fixedSize(horizontal: false, vertical: true)
@@ -93,7 +97,7 @@ public extension ParameterKnobProtocol {
         ?? parameterNode.slug
     }
     
-    var color: Color {
-        return knobStyle.color?.suiColor ?? .blue
+    var color: UniColor {
+        return knobStyle.color ?? .blue
     }
 }

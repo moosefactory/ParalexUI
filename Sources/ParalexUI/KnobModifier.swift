@@ -58,7 +58,7 @@ public struct KnobStyle {
 
 public struct KnobModifier: ViewModifier {
 
-    public var color: Color = .blue
+    public var color: UniColor = .blue
 
     @Binding public var state: KnobState
 
@@ -66,26 +66,29 @@ public struct KnobModifier: ViewModifier {
 
     // MARK: Getters
     
-    var highlightedColor: Color { color.opacity(0.7) }
-    var pressedColor: Color { color.opacity(0.8) }
-    var fillColor: Color { color.opacity(0.2) }
+    var highlightedColor: UniColor { color.opacity(0.7) }
+    var pressedColor: UniColor { color.opacity(0.8) }
+    var fillColor: UniColor { color.opacity(0.2) }
     
-    var computedColor: Color {
-        if !state.enabled { return .btDarkGray }
-        if state.pressed { return pressedColor }
-        if state.highlighted || state.isOn { return highlightedColor }
-        return fillColor
+    var computedColor: UniColor {
+        var color = fillColor
+        if state.pressed { color = pressedColor }
+        if state.highlighted || state.isOn { color = highlightedColor }
+        if !state.enabled {
+            color = color.darken
+        }
+        return color
     }
     
     public func body(content: Content) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5, style: SwiftUI.RoundedCornerStyle.circular)
-                .foregroundColor(computedColor)
+                .foregroundColor(computedColor.suiColor)
                 .animation(.easeInOut(duration: animated ? 0.3: 0), value: computedColor)
             content
             if state.selected {
                     RoundedRectangle(cornerRadius: 5, style: SwiftUI.RoundedCornerStyle.circular)
-                        .stroke(color, lineWidth: 2)
+                    .stroke(color.suiColor, lineWidth: 2)
                         .foregroundColor(.clear)
             }
         }
