@@ -15,13 +15,13 @@ public struct KnobButton: View, ParameterKnobProtocol {
     // MARK: - Properties
     
     // MachineViewProtocol
-//    @EnvironmentObject var machineController: MachineController
+    //    @EnvironmentObject var machineController: MachineController
     
     //MARK: - State Properties
     
     // ParameterHandleBox Protocol
-    @StateObject public var parameterNode: ParameterGraphNode
-        
+    @StateObject public var parameter: PXParameter
+    
     // Knob Protocol
     @State public var knobState = KnobState()
     
@@ -46,7 +46,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
     /// stateSource
     ///
     /// If a state source is set, then the state of the button is controled by an external value
-    var stateSource: Parameter?
+    var stateSource: PXParameter?
     
     /// The condition that will make this button highlighted
     /// Default is when value is grater than zero
@@ -58,18 +58,18 @@ public struct KnobButton: View, ParameterKnobProtocol {
     
     // MARK: - Initialization
     
-    public init(parameterNode: ParameterGraphNode,
-                stateSource: Parameter? = nil,
+    public init(parameter: PXParameter,
+                stateSource: PXParameter? = nil,
                 stateOnCondition: ((Double)->Bool)? = { $0 > 0 },
-         knobStyle: KnobStyle = KnobStyle(),
-         action: ((KnobEvent)->Void)? = nil) {
-        _parameterNode = StateObject(wrappedValue: parameterNode)
+                knobStyle: KnobStyle = KnobStyle(),
+                action: ((KnobEvent)->Void)? = nil) {
+        _parameter = StateObject(wrappedValue: parameter)
         _knobStyle = State(initialValue: knobStyle)
         self.stateSource = stateSource
         self.stateOnCondition = stateOnCondition
         self.action = action
     }
-
+    
     // MARK: - Body
     
     public var body: some View {
@@ -92,24 +92,23 @@ public struct KnobButton: View, ParameterKnobProtocol {
             if knobState.enabled {
                 let tap = KnobTapModifier(mouseDragIn: $knobState.highlighted,
                                           mouseDragWithCommandIn: $knobState.selected) { event in
-                    if let parameter = parameter {
-                        if !event.commandDown {
-                            if let boolParameter = parameter as? BoolParameter {
-                                boolParameter.toggle()
-                            } else {
-                                //parameter.apply(value: 1)
-                            }
+                    
+                    if !event.commandDown {
+                        if let boolParameter = parameter as? BoolParameter {
+                            boolParameter.toggle()
                         } else {
-                            //mc.parametersSelection.toggle(parameter)
+                            //parameter.apply(value: 1)
                         }
+                    } else {
+                        //mc.parametersSelection.toggle(parameter)
                     }
                     
                     if let isOnBinding = isOnBinding {
                         isOnBinding.wrappedValue = !isOnBinding.wrappedValue
                         knobState.isOn = isOnBinding.wrappedValue
                     }
-
-                    action?(KnobEvent(type: .tap, modifiers: [], phase: .ended, value: parameter?.doubleValue ?? 0))
+                    
+                    action?(KnobEvent(type: .tap, modifiers: [], phase: .ended, value: parameter.doubleValue))
                 }
                 Rectangle().foregroundColor(.white.opacity(0.001))
                     .modifier(tap)
@@ -118,7 +117,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
             // If we have a toggle and isOn source is not an external parameter,
             // we subscribe to the parameter to update isOn state when parameter value is changed
             
-            if isToggle, stateSource == nil , let parameter = parameterNode.parameter {
+            if isToggle, stateSource == nil , let parameter = parameter {
                 Rectangle().foregroundColor(.clear)
                     .onReceive(parameter.$doubleValue) { value in
                         knobState.isOn = stateOnCondition?(value) ?? false
@@ -149,7 +148,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
 //
 //struct KnobButton_Previews: PreviewProvider {
 //    static var previews: some View {
-//        KnobButton(parameterIdentifier: Identifier.testInt)
+//        KnobButton(parameterIdentifier: PXIdentifier.testInt)
 //        KnobButton(parameter: AnyParameter.testInt)
 //    }
 //}

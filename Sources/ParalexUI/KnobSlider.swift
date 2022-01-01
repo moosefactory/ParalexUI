@@ -16,7 +16,7 @@ public struct KnobSlider: View, ParameterKnobProtocol {
     // MARK: - Properties
     
     // ParameterHandleBox Protocol
-    @StateObject public var parameterNode: ParameterGraphNode
+    @StateObject public var parameter: PXParameter
     
     // Knob Protocol
     @State public var knobState = KnobState()
@@ -28,8 +28,8 @@ public struct KnobSlider: View, ParameterKnobProtocol {
     
     //MARK: - Initialization
     
-    public init(parameterNode: ParameterGraphNode, knobStyle: KnobStyle = KnobStyle()) {
-        _parameterNode = StateObject(wrappedValue: parameterNode)
+    public init(parameter: PXParameter, knobStyle: KnobStyle = KnobStyle()) {
+        _parameter = StateObject(wrappedValue: parameter)
         self.knobStyle = knobStyle
     }
     
@@ -38,7 +38,7 @@ public struct KnobSlider: View, ParameterKnobProtocol {
     public var body: some View {
         
         ZStack {
-            if let parameter = parameterNode.parameter {
+            if let parameter = parameter {
                 KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle)
                     .onReceive(parameter.$doubleValue) { value in
                         if let adapter = knobStyle.adapter {
@@ -75,7 +75,7 @@ public struct KnobSlider: View, ParameterKnobProtocol {
 struct KnobSlider_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-//        KnobSlider(parameterNode: ParameterGraphNode(with: <#T##AnyParameter#>, in: <#T##GroupGraphNode#>))
+//        KnobSlider(parameter: PXParameter(with: <#T##AnyParameter#>, in: <#T##PXGroup#>))
 //        KnobSlider(parameter: AnyParameter.testInt)
         }
     }

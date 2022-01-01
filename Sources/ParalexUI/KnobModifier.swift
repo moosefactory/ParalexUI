@@ -10,7 +10,7 @@ import SwiftUI
 import Paralex
 import UniColor
 
-public typealias PopoverIdentifier = Identifier
+public typealias PopoverIdentifier = PXIdentifier
 
 //MARK: - Knob State
 

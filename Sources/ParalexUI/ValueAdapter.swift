@@ -76,7 +76,7 @@ public class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible
     static let realFormatter = RealFormatter()
     static let factorFormatter = FactorFormatter()
     
-    static func enumerationFormatter(items: [Item]) -> Formatter {
+    static func enumerationFormatter(items: [PXItem]) -> Formatter {
         let formatter = EnumerationFormatter(items: items)
         return formatter
     }
@@ -225,7 +225,7 @@ public class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible
         return adapter
     }
 
-    public static func makeEnumerationAdapter(items: [Item]) -> ValueAdapter {
+    public static func makeEnumerationAdapter(items: [PXItem]) -> ValueAdapter {
         let formatter = ValueAdapter.enumerationFormatter(items: items)
         let range = Double(items.count)
         let adapter = ValueAdapter( formatter: formatter,

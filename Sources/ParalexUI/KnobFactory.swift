@@ -10,6 +10,6 @@ import Paralex
 
 public protocol KnobFactory {
     
-    //func labelInfo(for identifier: Identifier) ->
+    //func labelInfo(for identifier: PXIdentifier) ->
     
 }

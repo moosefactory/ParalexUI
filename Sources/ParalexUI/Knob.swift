@@ -71,30 +71,26 @@ extension KnobEvent {
 //MARK: - AnyParameter Knob Protocol -
 
 public protocol ParameterKnobProtocol: KnobProtocol {
-    var parameterNode: ParameterGraphNode { get }
+    var parameter: PXParameter { get }
 }
 
 extension ParameterKnobProtocol {
-    public var identifier: Identifier { parameterNode.identifier }
-    public var parameter: Parameter? { parameterNode.parameter }
-    public var symbols: String? { parameterNode.symbol }
-    public var name: String? { parameterNode.name }
+    public var identifier: PXIdentifier { parameter.identifier }
+    public var symbols: String? { parameter.symbol }
+    public var name: String? { parameter.name }
 }
 
 public extension ParameterKnobProtocol {
     
     var title: String {
         return knobStyle.titleOverride
-        ?? parameterNode.symbol
-        ?? parameterNode.name
-        ?? parameterNode.slug
+        ?? parameter.symbol
+        ?? parameter.name
     }
     
     var subTitle: String {
         return knobStyle.subtitleOverride
-        ?? parameterNode.name
-        ?? identifier.name
-        ?? parameterNode.slug
+        ?? parameter.name
     }
     
     var color: UniColor {
