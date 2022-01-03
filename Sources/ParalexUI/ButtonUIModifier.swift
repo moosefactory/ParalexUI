@@ -67,7 +67,7 @@ struct ButtonUIModifier: ViewModifier, MachineUIModifier {
                 }
 
                 Rectangle()
-                    .background(.clear)
+                    //.background(.clear)
                     .foregroundColor(.white)
                     .opacity(0.001)
                     .gesture(

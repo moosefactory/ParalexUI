@@ -7,7 +7,7 @@ let package = Package(
     name: "ParalexUI",
     defaultLocalization: "en",
     platforms: [
-        .macOS(.v12),
+        .macOS(.v11),
         .iOS(.v13)
     ],
     products: [

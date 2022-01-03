@@ -17,7 +17,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
     // MachineViewProtocol
     //    @EnvironmentObject var machineController: MachineController
     
-    //MARK: - State Properties
+    // MARK: - State Properties
     
     // ParameterHandleBox Protocol
     @StateObject public var parameter: PXParameter
@@ -35,7 +35,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
     // Button can also be only an indicator by listening to the 'isOn' publisher
     var isOnBinding: Binding<Bool>?
     
-    //MARK: - State Properties
+    // MARK: - State Properties
     
     /// knobStyle
     @State public var knobStyle = KnobStyle()
@@ -94,8 +94,8 @@ public struct KnobButton: View, ParameterKnobProtocol {
                                           mouseDragWithCommandIn: $knobState.selected) { event in
                     
                     if !event.commandDown {
-                        if let boolParameter = parameter as? BoolParameter {
-                            boolParameter.toggle()
+                        if let bool = parameter as? BoolParameter {
+                            bool.toggle()
                         } else {
                             //parameter.apply(value: 1)
                         }
