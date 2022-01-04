@@ -39,7 +39,7 @@ public struct KnobSlider: View, ParameterKnobProtocol {
         
         ZStack {
             if let parameter = parameter {
-                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle)
+                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle, symbolName: parameter.symbolName)
                     .onReceive(parameter.$doubleValue) { value in
                         if let adapter = knobStyle.adapter {
                             self.displayedValue = adapter.stringValue(adaptedValue: value)
@@ -63,7 +63,7 @@ public struct KnobSlider: View, ParameterKnobProtocol {
                     .modifier(slide)
                 }
             } else {
-                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle)
+                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle,symbolName: parameter.symbolName)
             }
         } // Root ZStack
         .modifier(KnobModifier(color: color, state: $knobState, animated: true))

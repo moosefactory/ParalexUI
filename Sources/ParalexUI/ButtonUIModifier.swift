@@ -71,9 +71,13 @@ struct ButtonUIModifier: ViewModifier, MachineUIModifier {
                     .foregroundColor(.white)
                     .opacity(0.001)
                     .gesture(
-                        DragGesture(minimumDistance: 0).modifiers(EventModifiers.command).onEnded({ value in
+                        DragGesture(minimumDistance: 0)
+                        #if os(macOS)
+                            .modifiers(EventModifiers.command).onEnded({ value in
                                 commandAction?()
-                            }).onChanged({ value in })
+                            })
+                        #endif
+                            .onChanged({ value in })
                     )
                     .gesture(
                         DragGesture(minimumDistance: 0)
@@ -126,9 +130,12 @@ struct ButtonUIModifier: ViewModifier, MachineUIModifier {
                                     action?()
                                 }
                             }
+                        #if os(macOS)
                             .modifiers(EventModifiers.command).onEnded({ value in
                                 commandAction?()
-                            }).onChanged({ value in
+                            })
+                        #endif
+                            .onChanged({ value in
                                 if geo.frame(in: CoordinateSpace.local).contains(value.location) {
                                     self.isPressed = true
                                     action?()

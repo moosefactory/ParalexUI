@@ -20,7 +20,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
     // MARK: - State Properties
     
     // ParameterHandleBox Protocol
-    @StateObject public var parameter: PXParameter
+    @State public var parameter: PXParameter
     
     // Knob Protocol
     @State public var knobState = KnobState()
@@ -63,7 +63,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
                 stateOnCondition: ((Double)->Bool)? = { $0 > 0 },
                 knobStyle: KnobStyle = KnobStyle(),
                 action: ((KnobEvent)->Void)? = nil) {
-        _parameter = StateObject(wrappedValue: parameter)
+        _parameter = State(wrappedValue: parameter)
         _knobStyle = State(initialValue: knobStyle)
         self.stateSource = stateSource
         self.stateOnCondition = stateOnCondition
@@ -76,7 +76,10 @@ public struct KnobButton: View, ParameterKnobProtocol {
         
         ZStack {
             if let parameter = parameter {
-                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle)
+                KnobCell(text: displayedValue,
+                         subText: subTitle,
+                         showSubtext: knobStyle.showSubtitle,
+                         symbolName: parameter.symbolName)
                     .onReceive(parameter.$doubleValue) { value in
                         print("[KnobButton] AnyParameter \(parameter.identifier) Change")
                     }
@@ -84,7 +87,8 @@ public struct KnobButton: View, ParameterKnobProtocol {
                         displayedValue = title
                     }
             } else {
-                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle)
+                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle,
+                         symbolName: parameter.symbolName)
             }
             
             // If Knob is enabled, we add the tap gesture

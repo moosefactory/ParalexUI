@@ -24,7 +24,9 @@ struct KnobTapModifier: ViewModifier, KnobModifierBase {
             content
                 .gesture(
                     DragGesture(minimumDistance: 0)
+                    #if os(macOS)
                         .modifiers(.command)
+                    #endif
 //                        .onChanged { value in
 //                            mouseDragWithCommandIn = geo.frame(in: CoordinateSpace.local).contains(value.location)
 //                        }
@@ -37,7 +39,9 @@ struct KnobTapModifier: ViewModifier, KnobModifierBase {
                 )
                 .gesture(
                     DragGesture(minimumDistance: 0)
+                    #if os(macOS)
                         .modifiers(.control)
+                    #endif
                         .onEnded { value in
                             if geo.frame(in: CoordinateSpace.local).contains(value.location) {
                                 action?(KnobEvent(type: .tap, modifiers: [.control]))

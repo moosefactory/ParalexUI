@@ -18,18 +18,21 @@ struct KnobCell: View {
     private(set) var subText: String
     
     private(set) var showSubtext: Bool
-    
+
+    private(set) var symbolName: String?
+
     var titleFont: Font = Font.system(size: 12)
     var subTitleFont: Font = Font.system(size: 9)
     
     var body: some View {
         VStack(alignment: .center, spacing: 1) {
-
-            if true {
-                Text(text).font(titleFont).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
-                if showSubtext  {
-                    Text(subText).font(subTitleFont).opacity(0.5).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
-                }
+            if let symbol = symbolName {
+                Image(systemName: symbol)
+            } else {
+                Text(text).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
+            }
+            if showSubtext  {
+                Text(subText).font(subTitleFont).opacity(0.5).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
             }
         }.fixedSize(horizontal: false, vertical: true)
     }
@@ -76,15 +79,23 @@ public protocol ParameterKnobProtocol: KnobProtocol {
 
 extension ParameterKnobProtocol {
     public var identifier: PXIdentifier { parameter.identifier }
+    #if os(macOS)
     public var symbols: String? { parameter.symbol }
+    #endif
+    public var symbolNames: [String]? { parameter.symbolNames }
     public var name: String? { parameter.name }
 }
 
 public extension ParameterKnobProtocol {
     
     var title: String {
+        var sfSymbol: String? = nil
+#if os(macOS)
+var sfSymbol = parameter.symbol
+#endif
+
         return knobStyle.titleOverride
-        ?? parameter.symbol
+        ?? sfSymbol
         ?? parameter.name
     }
     
