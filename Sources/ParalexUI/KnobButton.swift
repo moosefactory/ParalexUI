@@ -61,7 +61,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
     public init(parameter: PXParameter,
                 stateSource: PXParameter? = nil,
                 stateOnCondition: ((Double)->Bool)? = { $0 > 0 },
-                knobStyle: KnobStyle = KnobStyle(),
+                knobStyle: KnobStyle = KnobStyle(showIcon: true),
                 action: ((KnobEvent)->Void)? = nil) {
         _parameter = State(wrappedValue: parameter)
         _knobStyle = State(initialValue: knobStyle)
@@ -76,7 +76,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
         
         ZStack {
             if let parameter = parameter {
-                KnobCell(text: displayedValue,
+                KnobCell(style: knobStyle, text: displayedValue,
                          subText: subTitle,
                          showSubtext: knobStyle.showSubtitle,
                          symbolName: parameter.symbolName)
@@ -87,7 +87,7 @@ public struct KnobButton: View, ParameterKnobProtocol {
                         displayedValue = title
                     }
             } else {
-                KnobCell(text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle,
+                KnobCell(style: knobStyle, text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle,
                          symbolName: parameter.symbolName)
             }
             

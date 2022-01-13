@@ -48,9 +48,22 @@ public struct KnobStyle {
     public var showSubtitle: Bool = true
     public var showIcon: Bool = true
     public var popoverIdentifier: PopoverIdentifier? = nil
-    
-    public init(color: UniColor? = nil) {
+
+    public init(color: UniColor? = nil,
+                adapter: ValueAdapter? = nil,
+                titleOverride: String? = nil,
+                subtitleOverride: String? = nil,
+                showSubtitle: Bool = true,
+                showIcon: Bool = true,
+                popoverIdentifier: PopoverIdentifier? = nil) {
         self.color = color
+        self.adapter = adapter
+        self.titleOverride = titleOverride
+        self.subtitleOverride = subtitleOverride
+    
+        self.showSubtitle = showSubtitle
+        self.showIcon = showIcon
+        self.popoverIdentifier = popoverIdentifier
     }
 }
 

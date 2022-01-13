@@ -14,19 +14,21 @@ import UniColor
 
 struct KnobCell: View {
     
+    @State var style: KnobStyle
+    
     private(set) var text: String
     private(set) var subText: String
     
     private(set) var showSubtext: Bool
-
+    
     private(set) var symbolName: String?
-
+    
     var titleFont: Font = Font.system(size: 12)
     var subTitleFont: Font = Font.system(size: 9)
     
     var body: some View {
         VStack(alignment: .center, spacing: 1) {
-            if let symbol = symbolName {
+            if let symbol = symbolName, style.showIcon {
                 Image(systemName: symbol)
             } else {
                 Text(text).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
@@ -79,9 +81,9 @@ public protocol ParameterKnobProtocol: KnobProtocol {
 
 extension ParameterKnobProtocol {
     public var identifier: PXIdentifier { parameter.identifier }
-    #if os(macOS)
+#if os(macOS)
     public var symbols: String? { parameter.symbol }
-    #endif
+#endif
     public var symbolNames: [String]? { parameter.symbolNames }
     public var name: String? { parameter.name }
 }
@@ -89,14 +91,17 @@ extension ParameterKnobProtocol {
 public extension ParameterKnobProtocol {
     
     var title: String {
-        var sfSymbol: String? = nil
-#if os(macOS)
-var sfSymbol = parameter.symbol
-#endif
 
+#if os(macOS)
         return knobStyle.titleOverride
-        ?? sfSymbol
+        ?? parameter.symbol
         ?? parameter.name
+#else
+        return knobStyle.titleOverride
+        ?? parameter.name
+#endif
+        
+        
     }
     
     var subTitle: String {
