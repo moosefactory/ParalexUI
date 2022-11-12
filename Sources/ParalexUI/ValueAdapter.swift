@@ -13,36 +13,36 @@ import Paralex
 ///
 /// It also controls the number of decimals and the minimal value delta ( granularity )
 
-public class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible {
+open class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible {
 
-    var get: (Double, ValueAdapter) -> Double
-    var convertToInternal: (Double, ValueAdapter) -> Double
+    open var get: (Double, ValueAdapter) -> Double
+    open var convertToInternal: (Double, ValueAdapter) -> Double
 
-    public var min: Double = 0
-    public var max: Double = 1
-    public var range: Double { return max - min }
+    open var min: Double = 0
+    open var max: Double = 1
+    open var range: Double { return max - min }
 
-    public var formatter: Formatter?
+    open var formatter: Formatter?
 
-    public var positive: Bool = false
+    open var positive: Bool = false
 
-    public var notSetIfZero: Bool = false
+    open var notSetIfZero: Bool = false
 
-    public var decimals: Int = 0 {
+    open var decimals: Int = 0 {
         didSet {
             (formatter as? NumberFormatter)?.maximumFractionDigits = decimals
             (formatter as? NumberFormatter)?.minimumFractionDigits = hideZeroDecimal ? 0 : decimals
         }
     }
 
-    public var hideZeroDecimal: Bool = true {
+    open var hideZeroDecimal: Bool = true {
         didSet {
             (formatter as? NumberFormatter)?.minimumFractionDigits = hideZeroDecimal ? 0 : decimals
         }
     }
-    public var granularity: Double = 1
+    open var granularity: Double = 1
 
-    public var description: String {
+    open var description: String {
         return "[\(min)..\(max)]"
     }
 
@@ -76,20 +76,24 @@ public class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible
     static let realFormatter = RealFormatter()
     static let factorFormatter = FactorFormatter()
     
-    static func enumerationFormatter(items: [PXItem]) -> Formatter {
+    public static func enumerationFormatter(items: [PXItem]) -> Formatter {
         let formatter = EnumerationFormatter(items: items)
         return formatter
     }
 
-    public func value(for value: Double) -> Double {
+    public func value(for value: Double?) -> Double? {
+        guard let value = value else { return nil }
         return get(value, self)
     }
 
-    public func stringValue(for value: Double) -> String {
-        return formatter?.string(for: get(value, self)) ?? "\(get(value, self))"
+    public func stringValue(for value: Double?) -> String {
+        guard let value = self.value(for: value) else {
+            return "<nil>"
+        }
+        return formatter?.string(for: value) ?? "\(get(value, self))"
     }
 
-    public func stringValue(adaptedValue: Double) -> String {
+    public func stringValue(adaptedValue: Double?) -> String {
         return formatter?.string(for: adaptedValue) ?? "\(adaptedValue))"
     }
 
@@ -97,7 +101,7 @@ public class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible
         return convertToInternal(value, self)
     }
 
-    init(formatter: Formatter, positive: Bool = true, min: Double, max: Double,
+    public init(formatter: Formatter, positive: Bool = true, min: Double, max: Double,
          decimals: Int = 0, granularity: Double = 1, notSetIfZero: Bool = false,
          get: @escaping (Double, ValueAdapter) -> Double, set: @escaping (Double, ValueAdapter) -> Double ) {
         self.min = min
@@ -177,6 +181,21 @@ public class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible
         },
             set: { value, adapter -> Double in
                 return value
+        })
+        return adapter
+    }
+
+    public static func makeBoolAdapter() -> ValueAdapter {
+        let adapter = ValueAdapter( formatter: Formatter.onOffSymbolFormatter,
+                                    positive: true,
+                                    min: 0,
+                                    max: 1,
+                                    get: { value, adapter in
+                                        return value
+                                },
+                                    set: { value, adapter -> Double in
+                                        return value
+                        
         })
         return adapter
     }

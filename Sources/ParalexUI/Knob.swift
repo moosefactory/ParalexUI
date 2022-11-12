@@ -16,12 +16,15 @@ struct KnobCell: View {
     
     @State var style: KnobStyle
     
-    private(set) var text: String
-    private(set) var subText: String
+    var text: String?
     
-    private(set) var showSubtext: Bool
+    var title: String { text ?? style.label?.name ?? "" }
     
-    private(set) var symbolName: String?
+    private(set) var subText: String?
+    
+    private(set) var showSubtext: Bool?
+    
+    var symbolName: String?
     
     var titleFont: Font = Font.system(size: 12)
     var subTitleFont: Font = Font.system(size: 9)
@@ -31,9 +34,9 @@ struct KnobCell: View {
             if let symbol = symbolName, style.showIcon {
                 Image(systemName: symbol)
             } else {
-                Text(text).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
+                Text(title).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
             }
-            if showSubtext  {
+            if showSubtext == true, let subText = subText {
                 Text(subText).font(subTitleFont).opacity(0.5).truncationMode(SwiftUI.Text.TruncationMode.tail).lineLimit(1)
             }
         }.fixedSize(horizontal: false, vertical: true)
@@ -76,16 +79,18 @@ extension KnobEvent {
 //MARK: - AnyParameter Knob Protocol -
 
 public protocol ParameterKnobProtocol: KnobProtocol {
-    var parameter: PXParameter { get }
+    var parameter: PXParameter? { get }
+    var _parameterIdentifier: PXIdentifier? { get set }
 }
 
 extension ParameterKnobProtocol {
-    public var identifier: PXIdentifier { parameter.identifier }
+    public var identifier: PXIdentifier? { (parameter?.identifier ?? _parameterIdentifier) }
+
 #if os(macOS)
-    public var symbols: String? { parameter.symbol }
+    public var symbols: String? { parameter?.symbol }
 #endif
-    public var symbolNames: [String]? { parameter.symbolNames }
-    public var name: String? { parameter.name }
+    public var symbolNames: [String]? { parameter?.symbolNames }
+    public var name: String? { parameter?.name }
 }
 
 public extension ParameterKnobProtocol {
@@ -94,11 +99,15 @@ public extension ParameterKnobProtocol {
 
 #if os(macOS)
         return knobStyle.titleOverride
-        ?? parameter.symbol
-        ?? parameter.name
+        ?? parameter?.symbol
+        ?? parameter?.name
+        ?? identifier?.name
+        ?? ""
 #else
         return knobStyle.titleOverride
-        ?? parameter.name
+        ?? parameter?.name
+        ?? identifier?.name
+        ?? ""
 #endif
         
         
@@ -106,7 +115,9 @@ public extension ParameterKnobProtocol {
     
     var subTitle: String {
         return knobStyle.subtitleOverride
-        ?? parameter.name
+        ?? parameter?.name
+        ?? identifier?.name
+        ?? ""
     }
     
     var color: UniColor {

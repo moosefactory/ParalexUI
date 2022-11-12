@@ -16,7 +16,10 @@ public struct KnobSlider: View, ParameterKnobProtocol {
     // MARK: - Properties
     
     // ParameterHandleBox Protocol
-    @StateObject public var parameter: PXParameter
+    @State public var parameter: PXParameter?
+    
+    public var _parameterIdentifier: PXIdentifier?
+
     
     // Knob Protocol
     @State public var knobState = KnobState()
@@ -29,7 +32,12 @@ public struct KnobSlider: View, ParameterKnobProtocol {
     //MARK: - Initialization
     
     public init(parameter: PXParameter, knobStyle: KnobStyle = KnobStyle(showIcon: false)) {
-        _parameter = StateObject(wrappedValue: parameter)
+        _parameter = State(wrappedValue: parameter)
+        self.knobStyle = knobStyle
+    }
+    
+    public init(identifier: PXIdentifier, knobStyle: KnobStyle = KnobStyle(showIcon: false)) {
+        _parameterIdentifier = identifier
         self.knobStyle = knobStyle
     }
     
@@ -56,14 +64,18 @@ public struct KnobSlider: View, ParameterKnobProtocol {
                             
                             knobState.pressed = event.phase != .ended
                             parameter.offsetValue(by: event.value)
-                        print(parameter.doubleValue)
+                        print("\(parameter.path) = \(parameter.doubleValue)")
                             
                         })
                     Rectangle().foregroundColor(.white.opacity(0.001))
                     .modifier(slide)
                 }
             } else {
-                KnobCell(style: knobStyle, text: displayedValue, subText: subTitle, showSubtext: knobStyle.showSubtitle,symbolName: parameter.symbolName)
+                KnobCell(style: knobStyle,
+                         text: displayedValue,
+                         subText: subTitle,
+                         showSubtext: knobStyle.showSubtitle,
+                         symbolName: parameter?.symbolName)
             }
         } // Root ZStack
         .modifier(KnobModifier(color: color, state: $knobState, animated: true))

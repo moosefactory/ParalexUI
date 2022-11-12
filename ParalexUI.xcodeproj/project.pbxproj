@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CB7B559ADEAC1360A7989E5 /* Pods_ParalexUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ABF5B2CF87BC7AF6F6E497 /* Pods_ParalexUI.framework */; };
+		7E6E6CED903E26880CCC0128 /* Pods_ParalexUI_ParalexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D46482C46169DE75ACE7381 /* Pods_ParalexUI_ParalexUITests.framework */; };
+		BC6E7660279C80BC00EF6D42 /* ParalexUI.docc in Sources */ = {isa = PBXBuildFile; fileRef = BC6E765F279C80BC00EF6D42 /* ParalexUI.docc */; };
+		BC6E7666279C80BC00EF6D42 /* ParalexUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6E765B279C80BC00EF6D42 /* ParalexUI.framework */; };
+		BC6E766B279C80BC00EF6D42 /* ParalexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E766A279C80BC00EF6D42 /* ParalexUITests.swift */; };
+		BC6E766C279C80BC00EF6D42 /* ParalexUI.h in Headers */ = {isa = PBXBuildFile; fileRef = BC6E765E279C80BC00EF6D42 /* ParalexUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC6E7678279C818700EF6D42 /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = BC6E7677279C818700EF6D42 /* Sources */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC6E7667279C80BC00EF6D42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC6E7652279C80BC00EF6D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC6E765A279C80BC00EF6D42;
+			remoteInfo = ParalexUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22ABF5B2CF87BC7AF6F6E497 /* Pods_ParalexUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParalexUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D46482C46169DE75ACE7381 /* Pods_ParalexUI_ParalexUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParalexUI_ParalexUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		824F86E821E7284CECEE06F5 /* Pods-ParalexUI-ParalexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParalexUI-ParalexUITests.debug.xcconfig"; path = "Target Support Files/Pods-ParalexUI-ParalexUITests/Pods-ParalexUI-ParalexUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		91FA94802F278CB6EE271948 /* Pods-ParalexUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParalexUI.debug.xcconfig"; path = "Target Support Files/Pods-ParalexUI/Pods-ParalexUI.debug.xcconfig"; sourceTree = "<group>"; };
+		9EF2BD6840691AA6AF6B7BFB /* Pods-ParalexUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParalexUI.release.xcconfig"; path = "Target Support Files/Pods-ParalexUI/Pods-ParalexUI.release.xcconfig"; sourceTree = "<group>"; };
+		B06191783833C2B7F5100074 /* Pods-ParalexUI-ParalexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParalexUI-ParalexUITests.release.xcconfig"; path = "Target Support Files/Pods-ParalexUI-ParalexUITests/Pods-ParalexUI-ParalexUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC6E765B279C80BC00EF6D42 /* ParalexUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParalexUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC6E765E279C80BC00EF6D42 /* ParalexUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParalexUI.h; sourceTree = "<group>"; };
+		BC6E765F279C80BC00EF6D42 /* ParalexUI.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ParalexUI.docc; sourceTree = "<group>"; };
+		BC6E7665279C80BC00EF6D42 /* ParalexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParalexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC6E766A279C80BC00EF6D42 /* ParalexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParalexUITests.swift; sourceTree = "<group>"; };
+		BC6E7677279C818700EF6D42 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
+		BC6E7679279C837C00EF6D42 /* ParalexUI.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = ParalexUI.podspec; sourceTree = "<group>"; };
+		BC6E767A279C837C00EF6D42 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BC6E767B279C837C00EF6D42 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		BC6E767C279C837C00EF6D42 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BC6E767D279C837C00EF6D42 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC6E7658279C80BC00EF6D42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CB7B559ADEAC1360A7989E5 /* Pods_ParalexUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6E7662279C80BC00EF6D42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC6E7666279C80BC00EF6D42 /* ParalexUI.framework in Frameworks */,
+				7E6E6CED903E26880CCC0128 /* Pods_ParalexUI_ParalexUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		077A2A7092DD92D569DE5EBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91FA94802F278CB6EE271948 /* Pods-ParalexUI.debug.xcconfig */,
+				9EF2BD6840691AA6AF6B7BFB /* Pods-ParalexUI.release.xcconfig */,
+				824F86E821E7284CECEE06F5 /* Pods-ParalexUI-ParalexUITests.debug.xcconfig */,
+				B06191783833C2B7F5100074 /* Pods-ParalexUI-ParalexUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BC6E7651279C80BC00EF6D42 = {
+			isa = PBXGroup;
+			children = (
+				BC6E767C279C837C00EF6D42 /* LICENSE */,
+				BC6E767B279C837C00EF6D42 /* Package.swift */,
+				BC6E7679279C837C00EF6D42 /* ParalexUI.podspec */,
+				BC6E767D279C837C00EF6D42 /* Podfile */,
+				BC6E767A279C837C00EF6D42 /* README.md */,
+				BC6E7677279C818700EF6D42 /* Sources */,
+				BC6E765D279C80BC00EF6D42 /* ParalexUI */,
+				BC6E7669279C80BC00EF6D42 /* ParalexUITests */,
+				BC6E765C279C80BC00EF6D42 /* Products */,
+				077A2A7092DD92D569DE5EBA /* Pods */,
+				F22FCE07FACB4CA78FE2B262 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BC6E765C279C80BC00EF6D42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC6E765B279C80BC00EF6D42 /* ParalexUI.framework */,
+				BC6E7665279C80BC00EF6D42 /* ParalexUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC6E765D279C80BC00EF6D42 /* ParalexUI */ = {
+			isa = PBXGroup;
+			children = (
+				BC6E765E279C80BC00EF6D42 /* ParalexUI.h */,
+				BC6E765F279C80BC00EF6D42 /* ParalexUI.docc */,
+			);
+			path = ParalexUI;
+			sourceTree = "<group>";
+		};
+		BC6E7669279C80BC00EF6D42 /* ParalexUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BC6E766A279C80BC00EF6D42 /* ParalexUITests.swift */,
+			);
+			path = ParalexUITests;
+			sourceTree = "<group>";
+		};
+		F22FCE07FACB4CA78FE2B262 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22ABF5B2CF87BC7AF6F6E497 /* Pods_ParalexUI.framework */,
+				6D46482C46169DE75ACE7381 /* Pods_ParalexUI_ParalexUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BC6E7656279C80BC00EF6D42 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC6E766C279C80BC00EF6D42 /* ParalexUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BC6E765A279C80BC00EF6D42 /* ParalexUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC6E766F279C80BC00EF6D42 /* Build configuration list for PBXNativeTarget "ParalexUI" */;
+			buildPhases = (
+				017D245993C1EF3BA31FA801 /* [CP] Check Pods Manifest.lock */,
+				BC6E7656279C80BC00EF6D42 /* Headers */,
+				BC6E7657279C80BC00EF6D42 /* Sources */,
+				BC6E7658279C80BC00EF6D42 /* Frameworks */,
+				BC6E7659279C80BC00EF6D42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParalexUI;
+			productName = ParalexUI;
+			productReference = BC6E765B279C80BC00EF6D42 /* ParalexUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BC6E7664279C80BC00EF6D42 /* ParalexUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC6E7672279C80BC00EF6D42 /* Build configuration list for PBXNativeTarget "ParalexUITests" */;
+			buildPhases = (
+				99B7452E4EEC23D4367EEA9B /* [CP] Check Pods Manifest.lock */,
+				BC6E7661279C80BC00EF6D42 /* Sources */,
+				BC6E7662279C80BC00EF6D42 /* Frameworks */,
+				BC6E7663279C80BC00EF6D42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC6E7668279C80BC00EF6D42 /* PBXTargetDependency */,
+			);
+			name = ParalexUITests;
+			productName = ParalexUITests;
+			productReference = BC6E7665279C80BC00EF6D42 /* ParalexUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC6E7652279C80BC00EF6D42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					BC6E765A279C80BC00EF6D42 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					BC6E7664279C80BC00EF6D42 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = BC6E7655279C80BC00EF6D42 /* Build configuration list for PBXProject "ParalexUI" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC6E7651279C80BC00EF6D42;
+			productRefGroup = BC6E765C279C80BC00EF6D42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC6E765A279C80BC00EF6D42 /* ParalexUI */,
+				BC6E7664279C80BC00EF6D42 /* ParalexUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC6E7659279C80BC00EF6D42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC6E7678279C818700EF6D42 /* Sources in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6E7663279C80BC00EF6D42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		017D245993C1EF3BA31FA801 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParalexUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99B7452E4EEC23D4367EEA9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParalexUI-ParalexUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC6E7657279C80BC00EF6D42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC6E7660279C80BC00EF6D42 /* ParalexUI.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC6E7661279C80BC00EF6D42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC6E766B279C80BC00EF6D42 /* ParalexUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC6E7668279C80BC00EF6D42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC6E765A279C80BC00EF6D42 /* ParalexUI */;
+			targetProxy = BC6E7667279C80BC00EF6D42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BC6E766D279C80BC00EF6D42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BC6E766E279C80BC00EF6D42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BC6E7670279C80BC00EF6D42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91FA94802F278CB6EE271948 /* Pods-ParalexUI.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luckycart.ParalexUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC6E7671279C80BC00EF6D42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EF2BD6840691AA6AF6B7BFB /* Pods-ParalexUI.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luckycart.ParalexUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BC6E7673279C80BC00EF6D42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 824F86E821E7284CECEE06F5 /* Pods-ParalexUI-ParalexUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luckycart.ParalexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC6E7674279C80BC00EF6D42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B06191783833C2B7F5100074 /* Pods-ParalexUI-ParalexUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VMXFN634RR;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luckycart.ParalexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC6E7655279C80BC00EF6D42 /* Build configuration list for PBXProject "ParalexUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC6E766D279C80BC00EF6D42 /* Debug */,
+				BC6E766E279C80BC00EF6D42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC6E766F279C80BC00EF6D42 /* Build configuration list for PBXNativeTarget "ParalexUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC6E7670279C80BC00EF6D42 /* Debug */,
+				BC6E7671279C80BC00EF6D42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC6E7672279C80BC00EF6D42 /* Build configuration list for PBXNativeTarget "ParalexUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC6E7673279C80BC00EF6D42 /* Debug */,
+				BC6E7674279C80BC00EF6D42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC6E7652279C80BC00EF6D42 /* Project object */;
+}

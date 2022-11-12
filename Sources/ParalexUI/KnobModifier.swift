@@ -39,6 +39,7 @@ public struct KnobState {
 /// Passing a color in the KnobStyle overrides parameter color setting
 
 public struct KnobStyle {
+    public var label: PXLabel?
     public var color: UniColor?
     public var adapter: ValueAdapter?
     
@@ -49,13 +50,15 @@ public struct KnobStyle {
     public var showIcon: Bool = true
     public var popoverIdentifier: PopoverIdentifier? = nil
 
-    public init(color: UniColor? = nil,
+    public init(label: PXLabel? = nil,
+                color: UniColor? = nil,
                 adapter: ValueAdapter? = nil,
                 titleOverride: String? = nil,
                 subtitleOverride: String? = nil,
                 showSubtitle: Bool = true,
                 showIcon: Bool = true,
                 popoverIdentifier: PopoverIdentifier? = nil) {
+        self.label = label
         self.color = color
         self.adapter = adapter
         self.titleOverride = titleOverride

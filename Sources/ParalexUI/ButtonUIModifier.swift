@@ -9,36 +9,36 @@
 import SwiftUI
 
 
-struct ButtonUIModifier: ViewModifier, MachineUIModifier {
+public struct ButtonUIModifier: ViewModifier, MachineUIModifier {
     
-    var color: Color = .blue
+    public var color: Color = .blue
     
     /// isPressed
     ///
     /// isPressed is true when the view has a touch down
-    @State var isPressed: Bool = false
+    @State public var isPressed: Bool = false
     
     /// highlighted
     ///
     /// A button is said to be highlighted when it
     /// indicates a 'on' state.
-    var isHighlighted: Bool = false
+    public var isHighlighted: Bool = false
     
-    @State var isDisabled: Bool = false
+    @State public var isDisabled: Bool = false
     
     @State private var dragValue: CGFloat?
     
-    var pixelToValueRatio: Double = 1
+    public var pixelToValueRatio: Double = 1
     
-    var sensitivity: Double = 0.25
+    public var sensitivity: Double = 0.25
     
-    var isBorderVisible: Bool = false
+    public var isBorderVisible: Bool = false
 
     // MARK: Actions
     
-    var commandAction: (()->Void)?
-    var dragAction: ((Double)->Void)?
-    var action: (()->Void)?
+    public var commandAction: (()->Void)?
+    public var dragAction: ((Double)->Void)?
+    public var action: (()->Void)?
 
     // MARK: Getters
     
@@ -46,13 +46,27 @@ struct ButtonUIModifier: ViewModifier, MachineUIModifier {
     var pressedColor: Color { color.opacity(0.8) }
     var fillColor: Color { color.opacity(0.2) }
     
+        public init(color: Color = .blue,
+                    isHighlighted: Bool = false,
+                    isBorderVisible: Bool = false,
+                    commandAction: (()->Void)? = nil,
+                    dragAction: ((Double)->Void)? = nil,
+                    action: (()->Void)? = nil) {
+            self.color = color
+            self.isBorderVisible = isBorderVisible
+            self.isHighlighted = isHighlighted
+            self.commandAction = commandAction
+            self.dragAction = dragAction
+            self.action = action
+        }
+    
     var computedColor: Color {
         if isPressed { return pressedColor }
         if isHighlighted { return highlightedColor }
         return fillColor
     }
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         
         GeometryReader { geo in
             
