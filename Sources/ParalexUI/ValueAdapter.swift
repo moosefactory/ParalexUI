@@ -82,7 +82,7 @@ open class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible {
     }
 
     public func value(for value: Double?) -> Double? {
-        guard let value = value else { return nil }
+        guard let value = value else { return nil }
         return get(value, self)
     }
 
@@ -94,7 +94,10 @@ open class ValueAdapter: CustomStringConvertible, CustomDebugStringConvertible {
     }
 
     public func stringValue(adaptedValue: Double?) -> String {
-        return formatter?.string(for: adaptedValue) ?? "\(adaptedValue))"
+        guard let value = adaptedValue else {
+            return ""
+        }
+        return formatter?.string(for: adaptedValue) ?? "\(value))"
     }
 
     public func setValue(_ value: Double) -> Double {
